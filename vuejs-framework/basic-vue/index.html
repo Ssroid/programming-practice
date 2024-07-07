@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
 
 </head>
+
 <body>
-    <div id="app">
-        {{ name }}
-    </div>
-    <script>
-        new vue({
-            el: '#app',
-            data: {
-                name: '코지 코더'
-            }
-        })
+    <div id="app"></div>
+
+    <script type="module" src="./src/main.js">
+
     </script>
+
 </body>
 </html>
