@@ -1,37 +1,45 @@
 <template>
-  <button  @click="changeMessage">
-    {{ message }}
-  </button>
-  {{ watchMessage }}
+  <div>
+    <child-component :sendProps1="title" :sendProps2="createAt" :sendProps3="obj"></child-component>
+  </div>
 </template>
 
-<script>
-export default {
-  data () {
-    
+<script setup lang="ts">
+import { reactive, ref } from 'vue';
+import ChildComponent from './components/ChildComponent.vue';
 
-    return {
-      message: "안녕하세요, Vue.js watch 기능 테스트 오리지날 문구",
-      watchMessage: '',
-    }
-  },
-  watch: {
-    message() {
-      // window.alert('message 변수에 담긴 message가 변경되었습니다.');
-      this.watchMessage = 'Watch 기능 작동'
-    },
-    id() {
-      // id값의 감지될 때 해당 상세데이터를 조회하는 API를 호출할 때 
-    }
-  },
-  methods: {
-    changeMessage() {
-      console.log('함수 호출');
-      this.message = '변경된 message 데이터 입니다.';
-    }
-  }
+interface Obj {
+  id: number
+  name: string
 }
+
+const title= ref<string>('부모컴포넌트에서 선언된 데이터입니다.');
+const createAt = ref<number>(2024)
+const obj = reactive<Obj>({
+  id: 2024,
+  name: 'John',
+})
+
+// OptionsAPI 구성
+// export default {
+//   components: {
+//     ChildComponent,
+//   },
+//   data () {
+    
+//     return {
+//       title: '부모컴포넌트에서 선언된 데이터입니다.',
+//       createAt: 2024,
+//       obj: {
+//         id: 2024,
+//         name: 'John',
+//       }
+//     }
+//   }
+// }
 </script>
+
+
 
 <style lang="scss" scoped>
 
