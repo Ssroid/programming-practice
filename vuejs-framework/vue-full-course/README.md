@@ -123,3 +123,9 @@ ex. message 값의 변경을 감지하고자 할 때 watch에서 message()를 �
 - 반응성을 가지는 객체일 때는 ref를 써도 무관하지만, reactive를 권장
 > TypeScript에서 객체에 대한 타입을 설정할 때는 interface를 구성해서 각각의 데이터에 타입을 지정해서 객체의 타입을 넣도록 함.
 
+- CompositionAPI에서는 return의 data값의 value를 명시해줘야 한다. `data.value`
+
+### v-model
+- input 태그와 함께 사용하는 경우가 많으며, 본 강의에서는 input 태그 내의 이벤트에 따라 달라지는 것을 구현
+- 영어의 경우 input 태그가 즉각즉각 발동하지만, 한글의 경우 인코딩방식이 살짝 달라서 한글자정도 차이가 남
+- `@input="inputValue2 = $event.target.value"` 를 통해서 즉각적인 바인딩을 받을 수 있음.
