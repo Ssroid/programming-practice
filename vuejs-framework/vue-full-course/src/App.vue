@@ -1,50 +1,35 @@
 <template>
   <div>
-    <!-- <div v-if="isVisible" class="red"></div>
-    <div v-if="isVisible" class="blue"></div>
-    <div v-else class="black"></div> -->
+    <!-- v-for 디렉티브 사용 -->
+    <li v-for="(item, index) in samepleArray" :key="item" @click="openDialog(index)">{{ item }} / {{ index }}</li>
+    <li v-for="(user, index) in otherArray" :key="user.name">{{ user.id }} / {{ index }}</li>
 
-
-    <!-- <div v-if="count" class="red"></div>
-    <div v-else class="blue"></div>
-    <button @click="count++">증가</button>
-    <button @click="count--">감소</button> -->
-
-    <div v-show="isVisible" class="red"> </div>
-    <div v-show="!isVisible" class="blue"> </div>
-    <div v-if="isVisible" class="black"> </div>
+    <!-- 기전 li 태그 반복 -->
+    <!-- <li>{{ samepleArray[0] }}</li> -->
+    <!-- <li>{{ samepleArray[1] }}</li> -->
+    <!-- <li>{{ samepleArray[2] }}</li> -->
+    <!-- <li>{{ samepleArray[3] }}</li> -->
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
+    
 
     return {
-      isVisible: false,
-      count: 0,
+      samepleArray: ['a', 'b', 'c', 'd'],
+      otherArray: [
+        { id: 0, name: 'John'},
+        { id: 1, name: 'Kim'},
+        { id: 2, name: 'Lee'},
+        { id: 3, name: 'Park'},
+      ],
     }
-  },
+  }
 }
 </script>
 
-<style>
-.red {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-
-.blue {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-}
-
-.black {
-  width: 100px;
-  height: 100px;
-  background-color: black;
-}
+<style lang="scss" scoped>
 
 </style>
