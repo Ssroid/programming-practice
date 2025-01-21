@@ -23,4 +23,8 @@ public class BoardService {
     public void updateHits(Long id) {
         boardRepository.updateHits(id);
     }
+
+    public BoardDTO findById(Long id) {
+        return boardRepository.findById(id);
+    }
 }

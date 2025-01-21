@@ -42,7 +42,9 @@ public class BoardController {
         // 조회수 처리
         boardService.updateHits(id);
         // 상세내용
-
-        return "index";
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("board", boardDTO);
+        System.out.println("한 게시글 조회 = " + boardDTO);
+        return "detail";
     }
 }
