@@ -48,8 +48,8 @@ public class BoardController {
         model.addAttribute("board", boardDTO);
         System.out.println("한 게시글 조회 = " + boardDTO);
         if (boardDTO.getFileAttached() == 1) {
-            BoardFileDTO boardFileDTO = boardService.findFile(id);
-            model.addAttribute("boardFile", boardFileDTO);
+            List<BoardFileDTO> boardFileDTOList = boardService.findFile(id);
+            model.addAttribute("boardFile", boardFileDTOList);
         }
         return "detail";
     }
