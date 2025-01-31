@@ -49,7 +49,7 @@ public class BoardController {
         System.out.println("한 게시글 조회 = " + boardDTO);
         if (boardDTO.getFileAttached() == 1) {
             List<BoardFileDTO> boardFileDTOList = boardService.findFile(id);
-            model.addAttribute("boardFile", boardFileDTOList);
+            model.addAttribute("boardFileList", boardFileDTOList);
         }
         return "detail";
     }
