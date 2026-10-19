@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.sunms'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// 한글 주석/문자열이 깨지지 않도록 소스 인코딩을 UTF-8 로 지정 (Windows 기본값은 MS949)
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
